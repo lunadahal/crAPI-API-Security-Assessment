@@ -19,7 +19,7 @@ I assessed authentication-related behavior, object and function authorization, i
 
 ## Supporting observations
 
-**Input handling:** The community pagination API accepted `limit=abc`, `limit=-1`, and `limit=0` with HTTP 200, without a demonstrated security impact. The comment API rejected numeric content and malformed JSON with HTTP 400.
+**Input handling:** The community pagination endpoint returned HTTP 200 for `limit=abc`. A valid string comment request returned HTTP 200, while malformed JSON returned HTTP 400. These observations do not independently demonstrate an exploitable input validation vulnerability.
 
 **ZAP:** Passive review observed missing CSP and anti-clickjacking protection on `/shop`, a missing `X-Content-Type-Options` header, a chatbot cookie without an explicit SameSite attribute, server version disclosure, and wildcard CORS on login and token-verification responses. These are configuration observations, **not demonstrated exploits**. A targeted low-strength active scan of the product listing endpoint completed **344 requests**; some payloads were blocked by endpoint protection.
 
@@ -27,8 +27,7 @@ I assessed authentication-related behavior, object and function authorization, i
 
 This was black-box testing of an intentionally vulnerable **local training application**, not a production penetration test. Only selected workflows and one ZAP active-scan endpoint were covered. The HTTP-only warning reflects the local setup; the JavaScript timestamp alert had no demonstrated sensitive-data impact. Findings rely on the captured requests, responses, and browser state; no source-code audit or remediation retest was performed.
 
-**Evidence handling:** Keep original captures private. Publish only screenshots that substantiate the four principal findings or material configuration observations, after concealing tokens, credentials, cookies, personal identifiers, and unnecessary location details.
-
+**Evidence handling:** Original testing captures are retained privately. The repository contains 26 curated screenshots documenting the principal findings, authentication testing, input validation, and OWASP ZAP observations. Published evidence has been prepared with authentication tokens, session identifiers, and unnecessary personal information concealed.
 
 ## Evidence References
 
