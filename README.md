@@ -20,4 +20,11 @@ Security assessment of OWASP crAPI conducted in a local, authorized testing envi
 Manual API request interception, modification, and response analysis using Burp Suite, supplemented by OWASP ZAP scanning.
 
 ## Documentation
-Technical findings, supporting evidence, and remediation recommendations are maintained in the assessment report.
+
+**[Technical Security Assessment](ASSESSMENT.md)**
+
+Detailed findings, observed HTTP behavior, recommended controls, assessment boundaries, and references to supporting evidence.
+
+**[Security Testing Evidence](evidence/)**
+
+26 sanitized screenshots documenting authentication, authorization, business logic, input validation, and OWASP ZAP results.
